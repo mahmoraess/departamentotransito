@@ -7,5 +7,26 @@
 </head>
 <body>
     <h1>Form Veiculo</h1>
+    // quando manda por get a informação vai para url, quando salvo por post a informação vai para o body (informação é criptografada)
+    <form action="/veiculos/cadastro" method="get">
+        <div>
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" name="modelo">
+        </div>
+
+        <div>
+            <label for="placa">Placa</label>
+            <input type="text" id ="placa"  name="placa" maxlength="7" minlength="7"/>
+        </div>
+        <div>
+            <label for="cor">Cor</label>
+            <input type="text" id="cor" name="cor">
+        </div>
+        <div>
+            <label for="ano">Ano</label>
+            <input type="number" id="ano" name="ano" min="1886" max="2100">
+        </div>
+        <input type="submit" value="Cadastrar"/>
+    </form>
 </body>
 </html>
