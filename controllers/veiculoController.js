@@ -5,7 +5,9 @@ class VeiculoController{
         res.sendFile(path.join(__dirname, "../", "views", "formVeiculo.html"));
     }
 
-    static cadastrar(req, res) {}
+    static cadastrar(req, res) {
+        res.send(JSON.stringify( req.body ));
+    }
 
     static buscarTodos(req, res) {}
 }
