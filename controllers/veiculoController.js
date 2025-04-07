@@ -11,7 +11,7 @@ class VeiculoController{
     static async cadastrar(req, res) {
         res.send(JSON.stringify(req.body));
 
-        const {modelo, placa, ano, cor} = req.body
+        const {modelo, placa, ano, cor} = req.body;
 
         const veiculo = await client.veiculo.create({data: {
             modelo,
@@ -23,7 +23,15 @@ class VeiculoController{
         res.send({veiculo});
     }
 
-    static buscarTodos(req, res) {}
+    static async buscarTodos(req, res) {
+      const veiculos = await  client.veiculo.findFirst({});
+
+      res.send(JSON.stringify(veiculos));
+    }
 }
 
 module.exports = VeiculoController;
+
+// 1° criar o model usuario
+// 2° npx prisma migrate dev --> create_usuario_model
+// 3° usar o client.usuario.create ( ou .find ou .opdate)
