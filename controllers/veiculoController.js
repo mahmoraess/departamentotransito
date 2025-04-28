@@ -20,7 +20,7 @@ class VeiculoController{
             cor
         }});
 
-        res.redirect("/veiculo/todos");
+        res.redirect("/veiculos/todos");
     }
 
     static async buscarTodos(req, res) {
