@@ -20,7 +20,7 @@ class VeiculoController{
             cor
         }});
 
-        res.send({ veiculo });
+        res.redirect("/veiculo/todos");
     }
 
     static async buscarTodos(req, res) {
