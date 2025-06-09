@@ -21,7 +21,18 @@ class VeiculoController{
     }
 
     static async buscarTodos(req, res) {
-      const veiculos = await  client.veiculo.findMany({});
+        const id = re.params.id;
+        let = Veiculos;
+
+        if(id!= null){
+            veiculos= await client.veiculo.findUnique({
+                where: {
+                    id:parseInt(id),
+                },
+            });
+        }else{
+            veiculos=await client.veiculo.findMany({});
+        }
 
       res.render("veiculos", { veiculos });
     }

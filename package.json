@@ -1,7 +1,7 @@
 {
   "name": "departamentotransito",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dupla: Maria Antônia Santos Moraes e Mariani Almeida Silva",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +16,6 @@
     "express-handlebars": "^8.0.1",
     "handlebars": "^4.7.8",
     "prisma": "^6.5.0"
-  }
+  },
+  "devDependencies": {}
 }
