@@ -24,6 +24,6 @@ model Veiculo {
 model usuario {
   id Int @id @default(autoincrement())
   nome String
-  email String
+  email String @unique
   senha String
 }

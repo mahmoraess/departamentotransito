@@ -22,7 +22,7 @@ class VeiculoController{
 
     static async buscarTodos(req, res) {
         const id = re.params.id;
-        let = Veiculos;
+        let Veiculos;
 
         if(id!= null){
             veiculos= await client.veiculo.findUnique({
