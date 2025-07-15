@@ -58,6 +58,52 @@ class UsuarioController {
                 token: token,
             })
     }
+
+    static async verificaAutenticacao(req, res, next) {
+        const authHeader = req.headers["authorization"];
+        
+        if(authHeader){
+            const token = authHeader.split(" ")[1];
+
+            jwt.verify(token, process.env.SENHA_SERVIDOR, (err, payload) => {
+                if(err){
+                    return res.json({
+                        msg: "Token inválido!",
+                    });
+                }
+
+                req.usuarioId = payload.id;
+                next();
+            });
+        }else{
+            
+            return res.json({
+            msg: "token não encontrado!"
+        });
+      }
+    }
+
+    static async verificaIsAdmin(req, res, next){
+        if(!req.usuarioId){
+            return res.json({
+                msg: "Você não está autenticado!",
+            });
+        }
+
+        const usuario = await client.usuario.findUnique({
+            where: {
+                id: req.usuarioId, 
+            },
+        });
+
+        if(!usuario.isAdmin){
+            return res.json({
+                msg: "Acesso negado! Você não é um administrador!",
+            });
+        }
+
+        next();
+    }
 }
 
 module.exports = UsuarioController;
